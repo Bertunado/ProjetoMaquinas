@@ -52,9 +52,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'projetomaquinas.wsgi.application'
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default='postgres://usuario:senha@host:porta/projeto_maquinas'
-    )
+    'default': dj_database_url.config()
 }
 
 AUTH_PASSWORD_VALIDATORS = [
