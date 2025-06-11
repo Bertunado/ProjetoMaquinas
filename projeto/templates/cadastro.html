@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+{% load static %}
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <title>Cadastro Colaborador</title>
+</head>
+
+<body class="login">
+    <main class="login-container">
+        <form method="post" action="">
+            {% csrf_token %}
+            <h1>Cadastro</h1>
+
+            <div class="input-box">
+                <input type="text" name="username" placeholder="Usuário (RE)" required
+                       oninvalid="this.setCustomValidity('Por favor, preencha o usuário')"
+                       oninput="this.setCustomValidity('')"
+                       value="{{ form.username.value|default_if_none:'' }}">
+                <i class="bx bxs-user"></i>
+                {% if form.username.errors %}
+                    <div class="error">{{ form.username.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="input-box">
+                <input type="password" name="password1" placeholder="Senha" required
+                       oninvalid="this.setCustomValidity('Por favor, preencha a senha')"
+                       oninput="this.setCustomValidity('')">
+                <i class="bx bxs-lock-alt"></i>
+                {% if form.password1.errors %}
+                    <div class="error">{{ form.password1.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="input-box">
+                <input type="password" name="password2" placeholder="Confirme a senha" required
+                       oninvalid="this.setCustomValidity('Por favor, confirme a senha')"
+                       oninput="this.setCustomValidity('')">
+                <i class="bx bxs-lock-alt"></i>
+                {% if form.password2.errors %}
+                    <div class="error">{{ form.password2.errors }}</div>
+                {% endif %}
+            </div>
+
+            <button type="submit" class="login">Concluir Cadastro</button>
+        </form>
+
+        <div class="register-link">
+            <p>Já tem uma conta? <a href="{% url 'login' %}">Entrar</a></p>
+        </div>
+    </main>
+</body>
+</html>

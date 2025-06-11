@@ -1,0 +1,94 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="icon" href="../../../https://cdn.awsli.com.br/600x1000/761/761999/produto/266428026c96325778a.jpg" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Peças de maquinas - Whirlpool</title>
+</head>
+
+<body>
+
+<nav class="navegacao">
+    <div class="topo-nav">
+        <img src="{% static 'img/2021_Whirlpool_Corp_2C_White_RGB_1.png' %}" alt="Logo da Whirlpool" class="Fot-logo">
+
+        <ul class="menu">
+            <li><a href="{% url 'pag_inicial' %}" class="menu-link">Início</a></li>
+            <li><a href="https://mymfa.whirlpool.com/app/whirlpoolcorporation_isam_1/exkd3wkjw8rIXvMk54x6/sso/saml" class="menu-link">Whirlpool</a></li>
+            <li><a href="https://www.whirlpool.pt/suporte" class="menu-link">Suporte</a></li>
+        </ul>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Pesquisar máquinas...                                                  | 🔍" class="search-input" autocomplete="off">
+        <div id="suggestions" class="suggestions-box"></div>
+    </div>
+</nav>
+
+    <div class="banner-container">
+        <img src="{% static 'img/prensafinal.png' %}" alt="Banner das máquinas de pintura" class="banner-img">
+    </div>
+
+    <div class="divisor"></div>
+
+    <section id="Projetos" class="projetos">
+        <h2 class="projetos-titulo"></h2>
+        <div class="projetos-caixa">
+
+            <div class="projetos-card">
+                <a href="{% url 'omera1_prensas_fabrica2' %}" style="text-decoration: none; color: inherit;">
+                    <div class="caixa-textos-projeto">
+                        <h3 class="info-projetos">Omera 1</h3>
+                        <img src="{% static 'img/omera1.png.jpg' %}" alt="Foto fabrica2" class="imagem-card imagem-proporcional">
+                    </div>
+                </a>
+            </div>
+
+            <div class="projetos-card">
+                <a href="{% url 'omera2_prensas_fabrica2' %}" style="text-decoration: none; color: inherit;">
+                    <div class="caixa-textos-projeto">
+                        <h3 class="info-projetos">Omera 2</h3>
+                        <img src="{% static 'img/omera2.png.jpg' %}" alt="Foto fabrica2" class="imagem-card imagem-proporcional">
+                    </div>
+                </a>
+            </div>
+
+            <div class="projetos-card">
+                <a href="{% url 'omera3_prensas_fabrica2' %}" style="text-decoration: none; color: inherit;">
+                    <div class="caixa-textos-projeto">
+                        <h3 class="info-projetos">Omera 3</h3>
+                        <img src="{% static 'img/omera3.png.jpg' %}" alt="Foto fabrica2" class="imagem-card imagem-proporcional">
+                    </div>
+                </a>
+            </div>
+
+            <div class="projetos-card">
+                <a href="{% url 'omera4_prensas_fabrica2' %}" style="text-decoration: none; color: inherit;">
+                    <div class="caixa-textos-projeto">
+                        <h3 class="info-projetos">Omera 4</h3>
+                        <img src="{% static 'img/omera4.png.jpg' %}" alt="Foto fabrica3" class="imagem-card imagem-proporcional">
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="rodape">
+    <div class="rodape-conteudo">
+        <img src="{% static 'img/2021_Whirlpool_Corp_2C_White_RGB_1.png' %}" alt="Logo" class="rodape-logo">
+        <p class="rodape-texto">© Whirlpool - Joinville. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<script src="{% static 'search.js' %}"></script>
+
+</body>
+
+</html>
+

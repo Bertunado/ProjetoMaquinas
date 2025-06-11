@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Máquina</title>
+    <link rel="stylesheet" href="{% static 'style2.css' %}">
+</head>
+<body>
+<script src="{% static 'barradepesquisa.js' %}"></script>
+
+<nav class="navegacao">
+    <div class="topo-nav">
+        <img src="{% static 'img/2021_Whirlpool_Corp_2C_White_RGB_1.png' %}" alt="Logo da Whirlpool" class="Fot-logo">
+            <ul class="menu">
+                <li><a href="{% url 'selecionar_maquina' %}" class="menu-link">Início</a></li>
+                <li><a href="https://mymfa.whirlpool.com/app/" class="menu-link" target="_blank">Whirlpool</a></li>
+                <li><a href="https://www.whirlpool.pt/suporte" class="menu-link" target="_blank">Suporte</a></li>
+            </ul>
+    </div>
+
+    <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Pesquisar máquinas... | 🔍" class="search-input" autocomplete="off">
+            <div id="suggestions" class="suggestions-box"></div>
+        </div>
+</nav>
+
+<div class="banner-container">
+        <img src="{% static 'img/capa_supervisor.png' %}" alt="Imagem do Banner" class="banner-img">
+</div>
+
+    <h2>Selecione a máquina para adicionar peça:</h2>
+    <ul>
+        {% for maquina in maquinas %}
+            <li><a href="{% url 'adicionar_peca' maquina %}">{{ maquina }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <footer class="rodape">
+    <div class="rodape-conteudo">
+        <img src="{% static 'img/2021_Whirlpool_Corp_2C_White_RGB_1.png' %}" alt="Logo" class="rodape-logo">
+        <p class="rodape-texto">© Whirlpool - Joinville. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+</body>
+</html>

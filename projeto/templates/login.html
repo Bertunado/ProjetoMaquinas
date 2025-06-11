@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Login</title>
+</head>
+
+<body class="login">
+
+    <main class="login-container">
+
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="{{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <form method="post" action="">
+            {% csrf_token %}
+            <h1>Login</h1>
+
+            <div class="input-box">
+                <input type="text" name="username" placeholder="Usuário (RE)" required
+                       oninvalid="this.setCustomValidity('Por favor, preencha o usuário')"
+                       oninput="this.setCustomValidity('')">
+                <i class="bx bxs-user"></i>
+                {% if form.username.errors %}
+                    <div class="error">{{ form.username.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="input-box">
+                <input type="password" name="password" placeholder="Senha" required
+                       oninvalid="this.setCustomValidity('Por favor, preencha a senha')"
+                       oninput="this.setCustomValidity('')">
+                <i class="bx bxs-lock-alt"></i>
+                {% if form.password.errors %}
+                    <div class="error">{{ form.password.errors }}</div>
+                {% endif %}
+            </div>
+
+            <button type="submit" class="login">Login</button>
+
+            <div class="register-link">
+                <p>Não tem uma conta? <a href="{% url 'cadastro' %}">Cadastre-se</a></p>
+            </div>
+        </form>
+    </main>
+
+</body>
+
+</html>

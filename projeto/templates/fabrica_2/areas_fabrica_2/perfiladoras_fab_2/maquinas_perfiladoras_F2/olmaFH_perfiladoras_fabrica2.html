@@ -1,0 +1,72 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="icon" href="https://cdn.awsli.com.br/600x1000/761/761999/produto/266428026c96325778a.jpg" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Peças de maquinas - Whirlpool</title>
+</head>
+
+<body>
+
+<nav class="navegacao">
+    <div class="topo-nav">
+        <img src="{% static 'img/2021_Whirlpool_Corp_2C_White_RGB_1.png' %}" alt="Logo da Whirlpool" class="Fot-logo">
+
+        <ul class="menu">
+            <li><a href="{% url 'pag_inicial' %}" class="menu-link">Início</a></li>
+            <li><a href="https://mymfa.whirlpool.com/app/whirlpoolcorporation_isam_1/exkd3wkjw8rIXvMk54x6/sso/saml" class="menu-link">Whirlpool</a></li>
+            <li><a href="https://www.whirlpool.pt/suporte" class="menu-link">Suporte</a></li>
+        </ul>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Pesquisar máquinas...                                                  | 🔍" class="search-input" autocomplete="off">
+        <div id="suggestions" class="suggestions-box"></div>
+    </div>
+</nav>
+    
+    <main id="Início" class="cabecalho">
+        <h1>Olma FH</h1>
+        <h3>Prensas | Fábrica 2</h3>
+        <img src="{% static 'img/olmaFH_foto.jpg' %}" alt="Foto da prensa" class="Foto-Perfil" />
+        <div class="divisor"></div>
+    </main>
+    
+      <section id="Projetos" class="projetos">
+        <h2 class="projetos-titulo">⚙️ Peças Principais ⚙️</h2>
+            <div class="projetos-caixa">
+        {% if pecas %}
+        {% for peca in pecas %}
+                <div class="projetos-card">
+                    <h3 class="info-projetos">{{ peca.nome }}</h3>
+                    <p class="codigo-peça">Código: {{ peca.codigo }}</p>
+                    <img src="{{ peca.imagem.url }}" alt="{{ peca.nome }}" class="imagem-card">
+                    <p class="valor-peça">Valor: R$ {{ peca.preco }}</p>
+                </div>
+        {% endfor %}
+        {% else %}
+                <p class="mensagem-vazia">Nenhuma peça cadastrada para esta máquina.</p>
+        {% endif %}
+            </div>
+    </section>
+    
+    <footer class="rodape">
+    <div class="rodape-conteudo">
+        <img src="{% static 'img/2021_Whirlpool_Corp_2C_White_RGB_1.png' %}" alt="Logo" class="rodape-logo">
+        <p class="rodape-texto">© Whirlpool - Joinville. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<script src="{% static 'search.js' %}"></script>
+
+</body>
+
+</html>
+                    
+                    
+
