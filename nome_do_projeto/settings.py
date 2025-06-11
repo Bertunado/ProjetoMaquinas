@@ -1,11 +1,15 @@
 from pathlib import Path
+import os
+
 
 # BASE_DIR é a pasta raiz do seu projeto (a pasta que contém manage.py)
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-s@p+9ruhs5l%gb_6$*ns14*pox0y0xx$u@c*bd5cdl*djx)9zx'
-DEBUG = True
-ALLOWED_HOSTS = []
+
+DEBUG = False
+
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -74,3 +78,5 @@ LOGIN_REDIRECT_URL = 'pag_inicial'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
