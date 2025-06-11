@@ -32,7 +32,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'nome_do_projeto.urls'
+ROOT_URLCONF = 'projetomaquinas.urls'
 
 TEMPLATES = [
     {
@@ -49,7 +49,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'nome_do_projeto.wsgi.application'
+WSGI_APPLICATION = 'projetomaquinas.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
