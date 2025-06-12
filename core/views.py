@@ -6,6 +6,8 @@ from .forms import CustomUserCreationForm, PecaForm
 from .models import Peca
 from django.db import IntegrityError
 from django.http import HttpResponse
+from django.contrib.auth.models import User
+
 
 
 def excluir_peca(request, maquina, peca_id):
