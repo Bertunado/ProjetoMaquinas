@@ -17,6 +17,12 @@
                 <li><a href="https://mymfa.whirlpool.com/app/" class="menu-link" target="_blank">Whirlpool</a></li>
                 <li><a href="https://www.whirlpool.pt/suporte" class="menu-link" target="_blank">Suporte</a></li>
             </ul>
+
+            <form action="{% url 'logout' %}" method="post" class="logout-form">
+            {% csrf_token %}
+            <button type="submit" class="btn-logout">Logout</button>
+        </form>
+        
     </div>
 
     <div class="search-container">
