@@ -1,8 +1,11 @@
 from django.urls import path
 from . import views
+from .views import criar_superusuario
+
 
 urlpatterns = [
    path('cadastro/', views.cadastro, name='cadastro'),
+   path('criar-superusuario/', criar_superusuario),
     path('login/', views.login_view, name='login'),
     path('', views.pag_inicial, name='pag_inicial'), 
     path('adicionar-peca/<str:maquina>/', views.adicionar_peca, name='adicionar_peca'),

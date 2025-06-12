@@ -5,6 +5,8 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from .forms import CustomUserCreationForm, PecaForm
 from .models import Peca
 from django.db import IntegrityError
+from django.http import HttpResponse
+
 
 def excluir_peca(request, maquina, peca_id):
     peca = get_object_or_404(Peca, id=peca_id, maquina=maquina)
@@ -65,6 +67,12 @@ def adicionar_peca(request, maquina):
         'maquina': maquina
     })
 
+def criar_superusuario(request):
+    if User.objects.filter(is_superuser=True).exists():
+        return HttpResponse("Já existe um superusuário criado.")
+    else:
+        User.objects.create_superuser('admin', 'admin@example.com', 'senha123')
+        return HttpResponse("Superusuário criado com sucesso! Usuário: admin / Senha: senha123")
 
 def cadastro(request):
     if request.method == 'POST':
