@@ -504,12 +504,12 @@ h1 {
     font-family: "Montserrat", sans-serif;
 }
 
-body.login{
+body.login {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url('./img/papel_de_parede.jpg');
+    background: url('https://bertunado.github.io/css/img/papel_de_parede.jpg');
     background-size: cover;
     background-position: center;
 }
