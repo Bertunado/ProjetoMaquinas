@@ -4,6 +4,7 @@ from django.contrib.auth import views as auth_views
 from core import views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -15,6 +16,7 @@ urlpatterns = [
     path('selecionar-maquina/', views.selecionar_maquina, name='selecionar_maquina'),
     path('adicionar-peca/<str:maquina>/', views.adicionar_peca, name='adicionar_peca'),
     path('excluir-peca/<str:maquina>/<int:peca_id>/', views.excluir_peca, name='excluir_peca'),
+    path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
 ]
 
 

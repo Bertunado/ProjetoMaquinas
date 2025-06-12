@@ -75,6 +75,18 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'pag_inicial'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+#MEDIA_ROOT = BASE_DIR / 'media'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+INSTALLED_APPS += ['storages']
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_ACCESS_KEY_ID = 'SUA_CHAVE'
+AWS_SECRET_ACCESS_KEY = 'SUA_CHAVE_SECRETA'
+AWS_STORAGE_BUCKET_NAME = 'NOME_DO_BUCKET'
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/'
+AWS_DEFAULT_ACL = 'public-read'
+
