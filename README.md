@@ -3,7 +3,6 @@ Se precisar do login de superusuário favor entrar em contato;
 
 * Tecnologias Utilizadas:
 Django – Framework backend em Python;
-Django REST Framework – Criação de API com autenticação via token;
 Amazon S3 (AWS) – Armazenamento das imagens das peças;
 HTML + Django Templates – Estrutura de front-end;
 CSS externo via GitHub Pages – Estilização da interface;
@@ -13,9 +12,8 @@ Render – Hospedagem e deploy automático da aplicação;
 * Funcionalidades:
 * Autenticação
 Registro de usuários;
-Login com autenticação via token;
+Login;
 Logout e redirecionamento após login;
-Proteção de rotas com tokens;
 Controle de acesso por tipo de usuário (usuário comum e supervisor).
 
 * Acesso diferenciado:
@@ -66,6 +64,7 @@ Define as rotas da aplicação:
 /cadastro/ – cadastro de usuários;
 /pecas/ – listagem das peças;
 /cadastrar-peca/ – adicionar nova peça (supervisores).
+
 settings.py
 Contém as configurações do projeto, como:
 Configuração do Django REST Framework;
@@ -81,7 +80,6 @@ Supervisor pode adicionar uma nova peça com nome, código, valor e imagem.
 As imagens são exibidas corretamente pois estão no Amazon S3 com permissões públicas.
 
 * Exemplo de Uso (Superusuário)
-  
 * Login como superusuário
  O supervisor acessa a aplicação e realiza o login com suas credenciais.
 * Seleciona uma máquina
