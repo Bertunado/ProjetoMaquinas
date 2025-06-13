@@ -1,3 +1,6 @@
+Link do Site: https://projetomaquinas.onrender.com/pag-inicial/
+Se precisar do login de superusuário favor entrar em contato;
+
 * Tecnologias Utilizadas:
 Django – Framework backend em Python;
 Django REST Framework – Criação de API com autenticação via token;
